@@ -1,10 +1,12 @@
+import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet, Text, View } from "react-native";
+import HomeScene from "./scenes/homeScene/HomeScene";
 
 const App = () => {
     return (
-        <View style={styles.rootStyle}>
-            <Text>Black Widow</Text>
-        </View>
+        <NavigationContainer>
+            <HomeScene />
+        </NavigationContainer>
     );
 };
 
