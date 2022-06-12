@@ -1,16 +1,16 @@
-import { View, Text, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
+import Scene from "../../core/components/Scene";
 
 const SelfScene = () => {
     return (
-        <View style={styles.sceneStyle}>
+        <Scene style={styles.sceneStyle}>
             <Text>SelfScene</Text>
-        </View>
+        </Scene>
     );
 };
 
 const styles = StyleSheet.create({
     sceneStyle: {
-        flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },

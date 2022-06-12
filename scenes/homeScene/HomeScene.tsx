@@ -4,16 +4,44 @@ import TimelineScene from "./feedScene/TimelineScene";
 import NotificationsScene from "./notificationsScene/NotificationsScene";
 import SelfScene from "./selfScene/SelfScene";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Route } from "../core/navigators/route";
 
 const { Navigator, Screen: Scene } = createBottomTabNavigator();
+
+class HomeSceneRoute {
+    static readonly timeline: Route = {
+        path: "timeline",
+        title: "Timeline",
+        component: TimelineScene,
+    };
+
+    static readonly explore: Route = {
+        path: "explore",
+        title: "Explore",
+        component: ExploreScene,
+    };
+
+    static readonly notifications: Route = {
+        path: "notifications",
+        title: "Notifications",
+        component: NotificationsScene,
+    };
+
+    static readonly self: Route = {
+        path: "self",
+        title: "Self",
+        component: SelfScene,
+    };
+}
 
 const HomeScene = () => {
     return (
         <Navigator>
             <Scene
-                name="Timeline"
-                component={TimelineScene}
+                name={HomeSceneRoute.timeline.path.valueOf()}
+                component={HomeSceneRoute.timeline.component}
                 options={{
+                    title: HomeSceneRoute.timeline.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -25,9 +53,10 @@ const HomeScene = () => {
                 }}
             />
             <Scene
-                name="Explore"
-                component={ExploreScene}
+                name={HomeSceneRoute.explore.path.valueOf()}
+                component={HomeSceneRoute.explore.component}
                 options={{
+                    title: HomeSceneRoute.explore.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -39,9 +68,10 @@ const HomeScene = () => {
                 }}
             />
             <Scene
-                name="Notifications"
-                component={NotificationsScene}
+                name={HomeSceneRoute.notifications.path.valueOf()}
+                component={HomeSceneRoute.notifications.component}
                 options={{
+                    title: HomeSceneRoute.notifications.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -53,9 +83,10 @@ const HomeScene = () => {
                 }}
             />
             <Scene
-                name="Self"
-                component={SelfScene}
+                name={HomeSceneRoute.self.path.valueOf()}
+                component={HomeSceneRoute.self.component}
                 options={{
+                    title: HomeSceneRoute.self.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
