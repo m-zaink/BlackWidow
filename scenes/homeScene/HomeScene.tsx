@@ -1,47 +1,17 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import ExploreScene from "./exploreScene/ExploreScene";
-import TimelineScene from "./feedScene/TimelineScene";
-import NotificationsScene from "./notificationsScene/NotificationsScene";
-import SelfScene from "./selfScene/SelfScene";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Route } from "../core/navigators/route";
+import { BWRoute } from "../core/navigators/route";
 
 const { Navigator, Screen: Scene } = createBottomTabNavigator();
-
-class HomeSceneRoute {
-    static readonly timeline: Route = {
-        path: "timeline",
-        title: "Timeline",
-        component: TimelineScene,
-    };
-
-    static readonly explore: Route = {
-        path: "explore",
-        title: "Explore",
-        component: ExploreScene,
-    };
-
-    static readonly notifications: Route = {
-        path: "notifications",
-        title: "Notifications",
-        component: NotificationsScene,
-    };
-
-    static readonly self: Route = {
-        path: "self",
-        title: "Self",
-        component: SelfScene,
-    };
-}
 
 const HomeScene = () => {
     return (
         <Navigator>
             <Scene
-                name={HomeSceneRoute.timeline.path.valueOf()}
-                component={HomeSceneRoute.timeline.component}
+                name={BWRoute.timeline.path.valueOf()}
+                component={BWRoute.timeline.component}
                 options={{
-                    title: HomeSceneRoute.timeline.title?.valueOf(),
+                    title: BWRoute.timeline.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -53,10 +23,10 @@ const HomeScene = () => {
                 }}
             />
             <Scene
-                name={HomeSceneRoute.explore.path.valueOf()}
-                component={HomeSceneRoute.explore.component}
+                name={BWRoute.explore.path.valueOf()}
+                component={BWRoute.explore.component}
                 options={{
-                    title: HomeSceneRoute.explore.title?.valueOf(),
+                    title: BWRoute.explore.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -68,10 +38,10 @@ const HomeScene = () => {
                 }}
             />
             <Scene
-                name={HomeSceneRoute.notifications.path.valueOf()}
-                component={HomeSceneRoute.notifications.component}
+                name={BWRoute.notifications.path.valueOf()}
+                component={BWRoute.notifications.component}
                 options={{
-                    title: HomeSceneRoute.notifications.title?.valueOf(),
+                    title: BWRoute.notifications.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -83,10 +53,10 @@ const HomeScene = () => {
                 }}
             />
             <Scene
-                name={HomeSceneRoute.self.path.valueOf()}
-                component={HomeSceneRoute.self.component}
+                name={BWRoute.self.path.valueOf()}
+                component={BWRoute.self.component}
                 options={{
-                    title: HomeSceneRoute.self.title?.valueOf(),
+                    title: BWRoute.self.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (

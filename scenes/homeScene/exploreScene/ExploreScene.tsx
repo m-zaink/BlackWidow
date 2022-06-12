@@ -1,11 +1,11 @@
 import { Text, StyleSheet } from "react-native";
-import Scene from "../../core/components/Scene";
+import BWScene from "../../core/components/BWScene";
 
 const ExploreScene = () => {
     return (
-        <Scene style={styles.sceneStyle}>
+        <BWScene style={styles.sceneStyle}>
             <Text>ExploreScene</Text>
-        </Scene>
+        </BWScene>
     );
 };
 
