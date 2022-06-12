@@ -1,10 +1,18 @@
 import { View } from "react-native";
 
-const BWSpacer = () => {
+export const BWSpacer = () => {
     return <View style={{ flex: 1 }} />;
 };
 
-const BWSizeBox = (props: { height?: Number; width?: Number }) => {
+export const BWVerticalSpacer = () => {
+    return <View style={{ flexDirection: "column", flex: 1 }} />;
+};
+
+export const BWHorizontalSpacer = () => {
+    return <View style={{ flexDirection: "row", flex: 1 }} />;
+};
+
+export const BWSizeBox = (props: { height?: Number; width?: Number }) => {
     return (
         <View
             style={{
@@ -14,5 +22,3 @@ const BWSizeBox = (props: { height?: Number; width?: Number }) => {
         />
     );
 };
-
-export default BWSpacer;
