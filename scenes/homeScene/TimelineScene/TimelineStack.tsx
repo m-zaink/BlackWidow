@@ -1,18 +1,16 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { Tweet, ViewableTweet } from "../../../models";
 import { BWRoute } from "../../core/navigators/route";
-import { TweetSceneParameters } from "../../tweetScene/TweetScene";
+import { TweetSceneStackParameters } from "../../TweetScene/TweetScene";
+import { TimelineSceneParameters } from "./TimelineScene";
 
-export type TimlineStackParameters = {
-    timeline: undefined;
-    tweet: TweetSceneParameters;
-};
+export type TimlineStackParameters = TimelineSceneParameters & TweetSceneStackParameters;
 
 const { Navigator: StackNavigator, Screen: StackScene } = createStackNavigator<TimlineStackParameters>();
 
 const TimelineStack = () => {
     return (
         <StackNavigator
+            initialRouteName="timelineScene"
             screenOptions={{
                 headerStyle: {
                     shadowColor: "transparent",
@@ -23,15 +21,15 @@ const TimelineStack = () => {
             }}
         >
             <StackScene
-                name={"timeline"}
-                component={BWRoute.timeline.component}
+                name={"timelineScene"}
+                component={BWRoute.timeline.scene}
                 options={{
                     title: BWRoute.timeline.title?.valueOf(),
                 }}
             />
             <StackScene
-                name={"tweet"}
-                component={BWRoute.tweet.component}
+                name={"tweetScene"}
+                component={BWRoute.tweet.scene}
                 options={{
                     title: BWRoute.tweet.title?.valueOf(),
                 }}

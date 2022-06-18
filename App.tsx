@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet, Text, View } from "react-native";
-import HomeScene from "./scenes/homeScene/HomeScene";
+import HomeScene from "./scenes/HomeScene/HomeScene";
 
 const App = () => {
     return (

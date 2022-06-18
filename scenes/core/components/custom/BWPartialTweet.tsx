@@ -25,16 +25,22 @@ const ActionPressable = (props: { icon: ReactNode; text?: String; onPress?: Void
     );
 };
 
-const BWPartialTweet = (props: { tweet: ViewableTweet; onPress?: VoidCallback }) => {
+const BWPartialTweet = (props: {
+    tweet: ViewableTweet;
+    onPressed?: VoidCallback;
+    onProfileImagePressed?: VoidCallback;
+}) => {
     return (
-        <BWPressable onPress={props.onPress} style={({ pressed }) => (pressed ? { opacity: 0.4 } : { opacity: 1.0 })}>
+        <BWPressable onPress={props.onPressed} style={({ pressed }) => (pressed ? { opacity: 0.4 } : { opacity: 1.0 })}>
             <BWRow style={styles.rootStyle}>
-                <Image
-                    source={{
-                        uri: props.tweet.viewables.author.image.valueOf(),
-                    }}
-                    style={styles.imageStyle}
-                />
+                <BWPressable onPress={props.onProfileImagePressed}>
+                    <Image
+                        source={{
+                            uri: props.tweet.viewables.author.image.valueOf(),
+                        }}
+                        style={styles.imageStyle}
+                    />
+                </BWPressable>
                 <BWSizeBox width={scaledSize(16)} />
                 <View style={{ flex: 1 }}>
                     <BWColumn>

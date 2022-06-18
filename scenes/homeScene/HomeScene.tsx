@@ -1,10 +1,19 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { BWRoute, BWTabRoute } from "../core/navigators/route";
 import { scaledSize } from "../core/dimensions";
-import { createStackNavigator } from "@react-navigation/stack";
+import TimelineStack from "./TimelineScene/TimelineStack";
+import ExploreStack from "./ExploreScene/ExploreStack";
+import NotificationsStack from "./NotificationsScene/NotificationsStack";
+import SelfStack from "./SelfScene/SelfStack";
 
-const { Navigator: TabNavigator, Screen: TabScene } = createBottomTabNavigator();
+export type HomeTabParameters = {
+    timelineTab: undefined;
+    exploreTab: undefined;
+    notificationsTab: undefined;
+    selfTab: undefined;
+};
+
+const { Navigator: TabNavigator, Screen: TabScene } = createBottomTabNavigator<HomeTabParameters>();
 
 const HomeScene = () => {
     return (
@@ -23,8 +32,8 @@ const HomeScene = () => {
             }}
         >
             <TabScene
-                name={BWTabRoute.timeline.path.valueOf()}
-                component={BWTabRoute.timeline.component}
+                name={"timelineTab"}
+                component={TimelineStack}
                 options={{
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
@@ -37,8 +46,8 @@ const HomeScene = () => {
                 }}
             />
             <TabScene
-                name={BWTabRoute.explore.path.valueOf()}
-                component={BWTabRoute.explore.component}
+                name="exploreTab"
+                component={ExploreStack}
                 options={{
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
@@ -51,8 +60,8 @@ const HomeScene = () => {
                 }}
             />
             <TabScene
-                name={BWTabRoute.notifications.path.valueOf()}
-                component={BWTabRoute.notifications.component}
+                name="notificationsTab"
+                component={NotificationsStack}
                 options={{
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
@@ -65,8 +74,8 @@ const HomeScene = () => {
                 }}
             />
             <TabScene
-                name={BWTabRoute.self.path.valueOf()}
-                component={BWTabRoute.self.component}
+                name="selfTab"
+                component={SelfStack}
                 options={{
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {

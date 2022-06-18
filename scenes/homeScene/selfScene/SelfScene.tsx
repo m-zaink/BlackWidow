@@ -1,7 +1,12 @@
+import { StackScreenProps as StackSceneProps } from "@react-navigation/stack";
 import { Text, StyleSheet } from "react-native";
 import BWScene from "../../core/components/core/BWScene";
 
-const SelfScene = () => {
+export type SelfSceneParameters = {
+    selfScene: undefined;
+};
+
+const SelfScene = (props: StackSceneProps<SelfSceneParameters>) => {
     return (
         <BWScene style={styles.sceneStyle}>
             <Text>SelfScene</Text>

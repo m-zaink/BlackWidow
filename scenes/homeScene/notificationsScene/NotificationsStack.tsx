@@ -1,11 +1,15 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { BWRoute } from "../../core/navigators/route";
+import { NotificationsSceneParameters } from "./NotificationsScene";
 
-const { Navigator: StackNavigator, Screen: StackScene } = createStackNavigator();
+type NotificationsStackParameters = NotificationsSceneParameters;
+
+const { Navigator: StackNavigator, Screen: StackScene } = createStackNavigator<NotificationsStackParameters>();
 
 const NotificationsStack = () => {
     return (
         <StackNavigator
+            initialRouteName="notifications"
             screenOptions={{
                 headerStyle: {
                     shadowColor: "transparent",
@@ -14,8 +18,8 @@ const NotificationsStack = () => {
             }}
         >
             <StackScene
-                name={BWRoute.notifications.path.valueOf()}
-                component={BWRoute.notifications.component}
+                name={"notifications"}
+                component={BWRoute.notifications.scene}
                 options={{
                     title: BWRoute.notifications.title?.valueOf(),
                 }}

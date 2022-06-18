@@ -1,11 +1,16 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { BWRoute } from "../../core/navigators/route";
+import { TweetSceneStackParameters } from "../../TweetScene/TweetScene";
+import { SelfSceneParameters } from "./SelfScene";
 
-const { Navigator: StackNavigator, Screen: StackScene } = createStackNavigator();
+type SelfStackParameters = SelfSceneParameters & TweetSceneStackParameters;
+
+const { Navigator: StackNavigator, Screen: StackScene } = createStackNavigator<SelfStackParameters>();
 
 const SelfStack = () => {
     return (
         <StackNavigator
+            initialRouteName="selfScene"
             screenOptions={{
                 headerStyle: {
                     shadowColor: "transparent",
@@ -14,8 +19,8 @@ const SelfStack = () => {
             }}
         >
             <StackScene
-                name={BWRoute.self.path.valueOf()}
-                component={BWRoute.self.component}
+                name={"selfScene"}
+                component={BWRoute.self.scene}
                 options={{
                     title: BWRoute.self.title?.valueOf(),
                 }}

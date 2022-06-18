@@ -1,7 +1,10 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { BWRoute } from "../../core/navigators/route";
+import { ExploreSceneParameters } from "./ExploreScene";
 
-const { Navigator: StackNavigator, Screen: StackScene } = createStackNavigator();
+type ExploreStackParameters = ExploreSceneParameters;
+
+const { Navigator: StackNavigator, Screen: StackScene } = createStackNavigator<ExploreStackParameters>();
 
 const ExploreStack = () => {
     return (
@@ -14,8 +17,8 @@ const ExploreStack = () => {
             }}
         >
             <StackScene
-                name={BWRoute.explore.path.valueOf()}
-                component={BWRoute.explore.component}
+                name={"exploreScene"}
+                component={BWRoute.explore.scene}
                 options={{
                     title: BWRoute.explore.title?.valueOf(),
                 }}

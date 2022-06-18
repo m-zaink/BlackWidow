@@ -4,20 +4,17 @@ import BWColumn from "../../core/components/core/BWColumn";
 import BWPartialTweet from "../../core/components/custom/BWPartialTweet";
 import BWScene from "../../core/components/core/BWScene";
 import BWSeparator from "../../core/components/core/BWSeparator";
-import { useNavigation } from "@react-navigation/native";
-import { BWRoute } from "../../core/navigators/route";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { StackScreenProps as StackSceneProps } from "@react-navigation/stack";
 import { TimlineStackParameters } from "./TimelineStack";
 import { useEffect, useState } from "react";
 import TweetsDataSource from "../../../dataSources/tweetsDataSource/tweetsDataSource";
-import { FadeFromBottomAndroid } from "@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionPresets";
 import { Failure, Success } from "../../../utilities/typescriptx/typescriptx";
 
-type timelineProps = StackNavigationProp<TimlineStackParameters, "timeline">;
+export type TimelineSceneParameters = {
+    timelineScene: undefined;
+};
 
-const TimelineScene = () => {
-    const navigator = useNavigation<timelineProps>();
-
+const TimelineScene = ({ navigation }: StackSceneProps<TimlineStackParameters>) => {
     const [tweets, setTweets] = useState(Array<ViewableTweet>());
 
     useEffect(() => {
@@ -41,8 +38,11 @@ const TimelineScene = () => {
                         <BWColumn>
                             <BWPartialTweet
                                 tweet={tweet}
-                                onPress={() => {
-                                    navigator.navigate("tweet", { tweet: tweet });
+                                onPressed={() => {
+                                    navigation.navigate("tweetScene", { tweet: tweet });
+                                }}
+                                onProfileImagePressed={() => {
+                                    console.log(this);
                                 }}
                             />
                             {index !== tweets.length - 1 && <BWSeparator />}
