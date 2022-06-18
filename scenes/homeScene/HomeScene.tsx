@@ -1,18 +1,31 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { BWRoute } from "../core/navigators/route";
+import { BWRoute, BWTabRoute } from "../core/navigators/route";
 import { scaledSize } from "../core/dimensions";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const { Navigator, Screen: Scene } = createBottomTabNavigator();
+const { Navigator: TabNavigator, Screen: TabScene } = createBottomTabNavigator();
 
 const HomeScene = () => {
     return (
-        <Navigator>
-            <Scene
-                name={BWRoute.timeline.path.valueOf()}
-                component={BWRoute.timeline.component}
+        <TabNavigator
+            screenOptions={{
+                headerShown: false,
+                headerStyle: {
+                    shadowColor: "transparent",
+                    elevation: 0,
+                },
+                tabBarStyle: {
+                    shadowColor: "transparent",
+                    elevation: 0,
+                    borderTopWidth: 0,
+                },
+            }}
+        >
+            <TabScene
+                name={BWTabRoute.timeline.path.valueOf()}
+                component={BWTabRoute.timeline.component}
                 options={{
-                    title: BWRoute.timeline.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -23,11 +36,10 @@ const HomeScene = () => {
                     },
                 }}
             />
-            <Scene
-                name={BWRoute.explore.path.valueOf()}
-                component={BWRoute.explore.component}
+            <TabScene
+                name={BWTabRoute.explore.path.valueOf()}
+                component={BWTabRoute.explore.component}
                 options={{
-                    title: BWRoute.explore.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -38,11 +50,10 @@ const HomeScene = () => {
                     },
                 }}
             />
-            <Scene
-                name={BWRoute.notifications.path.valueOf()}
-                component={BWRoute.notifications.component}
+            <TabScene
+                name={BWTabRoute.notifications.path.valueOf()}
+                component={BWTabRoute.notifications.component}
                 options={{
-                    title: BWRoute.notifications.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -53,11 +64,10 @@ const HomeScene = () => {
                     },
                 }}
             />
-            <Scene
-                name={BWRoute.self.path.valueOf()}
-                component={BWRoute.self.component}
+            <TabScene
+                name={BWTabRoute.self.path.valueOf()}
+                component={BWTabRoute.self.component}
                 options={{
-                    title: BWRoute.self.title?.valueOf(),
                     tabBarLabel: () => null,
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
@@ -68,7 +78,7 @@ const HomeScene = () => {
                     },
                 }}
             />
-        </Navigator>
+        </TabNavigator>
     );
 };
 

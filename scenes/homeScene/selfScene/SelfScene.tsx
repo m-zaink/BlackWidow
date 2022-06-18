@@ -1,5 +1,5 @@
 import { Text, StyleSheet } from "react-native";
-import BWScene from "../../core/components/BWScene";
+import BWScene from "../../core/components/core/BWScene";
 
 const SelfScene = () => {
     return (
