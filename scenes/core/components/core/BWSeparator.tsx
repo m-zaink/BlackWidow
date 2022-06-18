@@ -1,5 +1,5 @@
 import { StyleProp, View, ViewStyle } from "react-native";
-import { scaledSize } from "../dimensions";
+import { scaledSize } from "../../dimensions";
 
 const BWSeparator = (props: { style?: StyleProp<ViewStyle> }) => {
     return (
@@ -9,9 +9,10 @@ const BWSeparator = (props: { style?: StyleProp<ViewStyle> }) => {
                     height: scaledSize(0.1),
                     borderBottomColor: "lightgray",
                     borderBottomWidth: scaledSize(0.1),
-                    width: "80%",
+                    opacity: 0.6,
+                    width: "90%",
                     alignSelf: "flex-end",
-                    marginVertical: scaledSize(8),
+                    marginVertical: scaledSize(4),
                 },
                 props.style,
             ]}

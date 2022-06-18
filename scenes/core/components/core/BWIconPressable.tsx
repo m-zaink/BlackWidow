@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { StyleProp, ViewStyle } from "react-native";
-import { StateWiseStyleCallback, VoidCallback } from "../types";
+import { StateWiseStyleCallback, VoidCallback } from "../../types";
 import BWPressable from "./BWPressable";
 
 const BWIconPressable = (props: {
